@@ -1,6 +1,6 @@
 from azure.storage.blob import BlobServiceClient
 
-connection_string = "DefaultEndpointsProtocol=https;AccountName=mdd0303;AccountKey=pQBeyj+E+r633lfi1m957uXfP/9nZDdM/TL3MVKI7Nl5gP1RfYDK/YZCNAFPaRA/NiYwmd4dqgEC+AStOpIHzA==;EndpointSuffix=core.windows.net"
+connection_string = ""
 container_name = "manufacturingdata"  # Change this to your desired container name
 
 try:

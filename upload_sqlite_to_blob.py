@@ -1,7 +1,7 @@
 from azure.storage.blob import BlobServiceClient
 
 # Azure Storage credentials
-AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=mdd0303;AccountKey=pQBeyj+E+r633lfi1m957uXfP/9nZDdM/TL3MVKI7Nl5gP1RfYDK/YZCNAFPaRA/NiYwmd4dqgEC+AStOpIHzA==;EndpointSuffix=core.windows.net"
+AZURE_STORAGE_CONNECTION_STRING = ""
 CONTAINER_NAME = "manufacturingdata"  # Make sure this matches your created container
 BLOB_NAME = "manufacturing_qc.db"  # The name of your database file
 
