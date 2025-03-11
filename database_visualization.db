@@ -1,0 +1,40 @@
+-- database: c:/Users/adrie/Documents/Projects Data/cloud data pipeline azure/manufacturing_qc.db
+
+
+-- List all tables in the database
+SELECT name FROM sqlite_master WHERE type='table';
+
+-- Get the schema of the QualityControl table
+PRAGMA table_info(QualityControl);
+
+-- Count the number of records in the QualityControl table
+SELECT 'QualityControl' AS table_name, COUNT(*) AS row_count FROM QualityControl;
+
+-- Preview the first 10 rows of the QualityControl table
+SELECT * FROM QualityControl LIMIT 10;
+
+-- Check for foreign key constraints in the QualityControl table (none expected since you didn't define any)
+PRAGMA foreign_key_list(QualityControl);
+
+-- Check indexes in the QualityControl table
+PRAGMA index_list(QualityControl);
+
+-- Retrieve unique values from the Factory_Location column
+SELECT DISTINCT Factory_Location FROM QualityControl;
+
+-- Check if there are any NULL values in the Temperature column
+SELECT COUNT(*) AS null_count FROM QualityControl WHERE Temperature IS NULL;
+
+-- Aggregate functions: Count of each Factory_Location
+SELECT Factory_Location, COUNT(*) AS count FROM QualityControl 
+GROUP BY Factory_Location 
+ORDER BY COUNT(*) DESC;
+
+-- Find duplicate entries in the Batch_Number column
+SELECT Batch_Number, COUNT(*) AS count 
+FROM QualityControl 
+GROUP BY Batch_Number 
+HAVING COUNT(*) > 1;
+
+-- Retrieve the latest record based on the Production_Date column
+SELECT * FROM QualityControl ORDER BY Production_Date DESC LIMIT 1;
