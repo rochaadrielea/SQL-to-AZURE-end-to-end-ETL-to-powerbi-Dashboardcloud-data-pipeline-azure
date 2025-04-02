@@ -36,9 +36,8 @@ The system follows a **modern Data Lakehouse structure** with **Bronze**, **Silv
 ###  Step 5: Power BI Dashboard
 - Gold-level data (in Parquet format) is stored back into **Azure Blob Storage**.
 - Power BI connects to Azure Blob Storage or Azure SQL to visualize key metrics:
-  - 📉 Average defect rate by factory
-  - 📦 Product count per location
-  - 📊 Time-based trends in manufacturing quality
+  -  Product count per location
+    
 
 ---
 
