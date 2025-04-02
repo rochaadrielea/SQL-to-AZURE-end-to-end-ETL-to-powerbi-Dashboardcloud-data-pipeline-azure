@@ -1,6 +1,6 @@
 # SQL-to-AZURE-end-to-end-ETL-to-powerbi-Dashboard
 
-## 📌 Overview
+##  Overview
 
 This project demonstrates a complete **ETL (Extract, Transform, Load)** pipeline using:
 
@@ -13,27 +13,27 @@ The system follows a **modern Data Lakehouse structure** with **Bronze**, **Silv
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
-### 🔹 Step 1: Data Simulation (Local)
+### Step 1: Data Simulation (Local)
 - Manufacturing data (product quality, temperature, pressure, etc.) is generated in Python and stored in a **SQLite database** (`manufacturing_qc.db`).
 
-### 🔹 Step 2: Upload to Azure
+### Step 2: Upload to Azure
 - The `.db` file is uploaded to **Azure Blob Storage** using the Azure SDK for Python.
 - Blob containers are listed to confirm the upload.
 
-### 🔹 Step 3: Mount in Azure Databricks
+### Step 3: Mount in Azure Databricks
 - The Azure storage container is **mounted into Databricks File System (DBFS)**.
 - The SQLite file is **copied from DBFS to local driver node**.
 
-### 🔹 Step 4: Data Processing with PySpark
+### Step 4: Data Processing with PySpark
 - The SQLite table is read into a **Spark DataFrame**.
 - Data is analyzed for nulls, uniqueness, and classified into:
-  - 🥉 Bronze: Raw data with high nulls
-  - 🥈 Silver: Clean and structured data
-  - 🥇 Gold: Aggregated KPIs (e.g. defect rate by factory)
+  -  Bronze: Raw data with high nulls
+  -  Silver: Clean and structured data
+  -  Gold: Aggregated KPIs (e.g. defect rate by factory)
 
-### 🔹 Step 5: Power BI Dashboard
+###  Step 5: Power BI Dashboard
 - Gold-level data (in Parquet format) is stored back into **Azure Blob Storage**.
 - Power BI connects to Azure Blob Storage or Azure SQL to visualize key metrics:
   - 📉 Average defect rate by factory
@@ -42,7 +42,7 @@ The system follows a **modern Data Lakehouse structure** with **Bronze**, **Silv
 
 ---
 
-## 🛠️ Tools Used
+## Tools Used
 
 - **Python** (data generation, Azure SDK)
 - **SQLite** (local lightweight database)
@@ -53,7 +53,7 @@ The system follows a **modern Data Lakehouse structure** with **Bronze**, **Silv
 
 ---
 
-## 📥 Inputs
+## Inputs
 
 - `manufacturing_qc.db` file (SQLite database)
 - Table: `QualityControl` with fields like:
@@ -65,11 +65,11 @@ The system follows a **modern Data Lakehouse structure** with **Bronze**, **Silv
 
 ---
 
-## 📤 Outputs
+##  Outputs
 
-- 🟤 **Bronze Layer**: Raw parquet dataset stored in Azure
-- ⚪ **Silver Layer**: Cleaned dataset with validated schema
-- 🟡 **Gold Layer**: Aggregated metrics ready for reporting
+-  **Bronze Layer**: Raw parquet dataset stored in Azure
+-  **Silver Layer**: Cleaned dataset with validated schema
+-  **Gold Layer**: Aggregated metrics ready for reporting
   - Stored in `.parquet` format
   - Connected to Power BI
 
